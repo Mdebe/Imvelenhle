@@ -10,25 +10,25 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Projects", href: "/projects" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-[100px]">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-[120px]">
 
         {/* Logo */}
         <div className="flex items-center h-full">
           <Link href="/">
             <Image
               src="/logo.png"
-              alt="iMvelenhle Cleaning Services Logo"
-              width={340}
-              height={92}
-              className="h-[92px] w-auto object-contain"
+              alt="Valley Coats Logo"
+              width={400}
+              height={140}
+              className="h-[110px] w-auto object-contain"
               priority
             />
           </Link>
@@ -49,9 +49,9 @@ export default function Navbar() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="ml-4 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
+            className="ml-4 rounded-md bg-accent px-6 py-3 text-sm font-bold text-black hover:opacity-90 transition"
           >
-            Find a Cleaner
+            Get a Quote
           </Link>
         </nav>
 
@@ -67,7 +67,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
+        <div className="md:hidden bg-white shadow-lg border-t border-[#5da446]">
           <nav className="flex flex-col px-6 py-6 gap-4">
             {navItems.map((item) => (
               <Link
@@ -84,9 +84,9 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 rounded-md bg-accent px-5 py-3 text-center font-semibold text-white"
+              className="mt-4 rounded-md bg-accent px-5 py-3 text-center font-bold text-black"
             >
-              Find a Cleaner
+              Get a Quote
             </Link>
           </nav>
         </div>
@@ -95,16 +95,16 @@ export default function Navbar() {
       {/* Styles */}
       <style jsx>{`
         :global(.text-primary) {
-          color: #0b3c5d;
+          color: #5da446;
         }
 
         :global(.bg-accent) {
-          background-color: #147595;
+          background-color: #e8d926; /* updated gold color */
         }
 
         .nav-link {
           font-size: 1.05rem;
-          font-weight: 600;
+          font-weight: 700;
           position: relative;
         }
 
@@ -115,7 +115,7 @@ export default function Navbar() {
           bottom: -6px;
           width: 0;
           height: 3px;
-          background: #147595;
+          background: #5da446;
           transition: width 0.25s ease;
         }
 
@@ -125,12 +125,12 @@ export default function Navbar() {
 
         .mobile-link {
           font-size: 1rem;
-          font-weight: 500;
-          color: #0b3c5d;
+          font-weight: 700;
+          color: #5da446;
         }
 
         .mobile-link:hover {
-          color: #147595;
+          opacity: 0.85;
         }
       `}</style>
     </header>

@@ -2,41 +2,37 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { FaPalette, FaRulerCombined, FaCheckCircle, FaStar, FaSprayCan } from "react-icons/fa";
 import Navbar from "../../components/Navbar";  
 import Footer from "../../components/Footer";  
 
 export default function ServicesPage() {
   const services = [
     {
-      title: "Residential Cleaning",
-      desc: "Expert home cleaning, tailored to your needs. Safe, reliable, and thorough.",
-      img: "/images/residential.jpg",
+      title: "Decorative Coatings",
+      desc: "Premium decorative wall and floor coatings with high durability and aesthetic appeal.",
+      img: "/images/consulting.jpg",
+      icon: <FaPalette size={36} className="text-[#147595] mb-2 mx-auto" />,
     },
     {
-      title: "Commercial Cleaning",
-      desc: "Professional cleaning for offices, shops, and commercial spaces. We maintain high hygiene standards.",
-      img: "/images/commercial.jpg",
+      title: "Architectural Finishes",
+      desc: "Custom architectural finishes tailored to residential, commercial, and industrial projects.",
+      img: "/images/architectural.jpg",
+      icon: <FaRulerCombined size={36} className="text-[#147595] mb-2 mx-auto" />,
     },
     {
-      title: "Mattress & Bed Cleaning",
-      desc: "Deep clean mattresses and bed bases with sanitizer for a fresh and healthy home.",
-      img: "/images/mattress.jpg",
+      title: "Surface Preparation",
+      desc: "Expert surface preparation to ensure flawless application and long-lasting results.",
+      img: "/images/coatings.jpg",
+      icon: <FaCheckCircle size={36} className="text-[#147595] mb-2 mx-auto" />,
     },
     {
-      title: "Outdoor & Lawn",
-      desc: "Lawn cleaning, gardening, trimming trees, and outdoor maintenance services.",
-      img: "/images/outdoor.jpg",
+      title: "Inspection & Delivery",
+      desc: "Final inspection ensures premium quality and satisfaction before project handover.",
+      img: "/images/flooring.jpg",
+      icon: <FaStar size={36} className="text-[#147595] mb-2 mx-auto" />,
     },
-    {
-      title: "Sanitizing Services",
-      desc: "Non-alcohol textile-safe sanitizers for fabrics, mattresses, and home surfaces.",
-      img: "/images/sanitizer.jpg",
-    },
-    {
-      title: "Deep Cleaning",
-      desc: "Thorough cleaning for homes and businesses, tackling hard-to-reach areas.",
-      img: "/images/deep-cleaning.jpg",
-    },
+     
   ];
 
   return (
@@ -52,25 +48,27 @@ export default function ServicesPage() {
               Our <span className="text-white/90">Services</span>
             </h1>
             <p className="text-lg md:text-xl leading-relaxed">
-              Discover the range of professional cleaning solutions offered by iMvelenhle Cleaning Services.
+              Delivering premium decorative coatings and architectural finishes for residential, commercial, and industrial spaces.
             </p>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-16 px-6 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+        {/* Services Grid with Icons */}
+        <section className="py-20 px-6 max-w-7xl mx-auto bg-gray-50 rounded-3xl shadow-xl -mt-16 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-[#147595]">Our Services</h2>
+          <div className="grid md:grid-cols-3 gap-12">
             {services.map((service, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition p-4"
-                initial={{ opacity: 0, y: 20 }}
+                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition p-6 text-center"
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
+                transition={{ duration: 0.7, delay: i * 0.15 }}
               >
-                <div className="relative h-48 w-full rounded-xl overflow-hidden mb-4">
-                  <Image src={service.img} alt={service.title} fill className="object-cover" />
+                {service.icon}
+                <div className="relative h-48 w-full rounded-xl overflow-hidden mb-4 mt-2">
+                  <Image src={service.img} alt={service.title} fill className="object-cover rounded-xl" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-2 text-[#010a33]">{service.title}</h3>
                 <p className="text-gray-700">{service.desc}</p>
@@ -79,19 +77,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="bg-[#147595] text-white py-16 px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Need a Cleaning Service?</h2>
-          <p className="mb-8 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-            Contact iMvelenhle Cleaning Services today to schedule a cleaning appointment for your home or business.
-          </p>
-          <a
-            href="#contact"
-            className="inline-block bg-white text-[#147595] font-semibold px-8 py-3 rounded-full shadow-lg hover:opacity-90 transition"
-          >
-            Book a Cleaning
-          </a>
-        </section>
+         
 
       </main>
 

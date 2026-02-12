@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutUs() {
-  const accentColor = "#147595";
+  const accentColor = "#5da446";
 
   return (
     <section id="about" className="bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-14">
 
-        {/* Left Video */}
+        {/* Left Image */}
         <motion.div
           className="md:w-1/2 relative h-[380px] w-full rounded-3xl overflow-hidden shadow-xl"
           initial={{ opacity: 0, x: -40 }}
@@ -17,13 +18,12 @@ export default function AboutUs() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <video
-            src="/videos/about-us.mp4" // replace with your video path
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
+          <Image
+            src="/images/valley-coats-about.jpg" // replace with your Valley Coats image path
+            alt="Valley Coats Decorative Coatings"
+            fill
+            className="object-cover rounded-3xl"
+            priority
           />
         </motion.div>
 
@@ -36,25 +36,24 @@ export default function AboutUs() {
           transition={{ duration: 0.8, delay: 0.15 }}
         >
           <h3 className="text-4xl md:text-5xl font-bold" style={{ color: "#010a33" }}>
-            About <span style={{ color: accentColor }}>Imvelenhle</span>
+            About <span style={{ color: accentColor }}>Valley Coats</span>
           </h3>
 
           <p className="mt-6 text-lg leading-relaxed" style={{ color: "#333" }}>
-            Imvelenhle Cleaning Services is a trusted, professional cleaning
-            company committed to delivering high-quality residential and
-            commercial cleaning solutions.
+            Valley Coats is a specialist decorative coatings and architectural finishes company 
+            based in KwaMbonambi, KwaZulu-Natal. We transform ordinary walls and floors into 
+            timeless, luxurious design features for residential, commercial, and industrial spaces.
           </p>
 
           <p className="mt-4 text-lg leading-relaxed" style={{ color: "#333" }}>
-            We pride ourselves on reliability, attention to detail, and a
-            friendly team that ensures every space we clean is left fresh,
-            hygienic, and welcoming.
+            Our team combines technical expertise with artistic craftsmanship, ensuring every 
+            surface we treat reflects precision, durability, and aesthetic excellence.
           </p>
 
           <p className="mt-4 text-lg leading-relaxed" style={{ color: "#333" }}>
-            Our mission is simple — to provide affordable, dependable cleaning
-            services that give our clients peace of mind and more time to focus
-            on what matters most.
+            Our mission is simple — to deliver premium decorative coatings and architectural finishes 
+            that elevate spaces, working closely with architects, designers, and clients to achieve 
+            exceptional results.
           </p>
         </motion.div>
 

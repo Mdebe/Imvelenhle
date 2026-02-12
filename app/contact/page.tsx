@@ -7,11 +7,11 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";  
 
 const services = [
-  "Mattress Cleaning",
-  "Bed Base Cleaning",
-  "Outdoor Cleaning",
-  "Tree Trimming",
-  "Gardening Maintenance",
+  "Decorative Coatings",
+  "Architectural Finishes",
+  "Surface Preparation",
+  "Inspection & Delivery",
+  "Sanitizing Coatings",
 ];
 
 export default function ContactPage() {
@@ -23,13 +23,12 @@ export default function ContactPage() {
   const phoneNumber = "27723340746";
 
   const sendWhatsApp = () => {
-    const text = `Hello! My name is ${name} (${email}). I would like to book the service: ${service}. Message: ${message}`;
+    const text = `Hello! My name is ${name} (${email}). I would like to inquire about the service: ${service}. Message: ${message}`;
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
     <main className="bg-white text-[#010a33] min-h-screen">
-
       <Navbar />
 
       {/* CONTACT DETAILS + FORM */}
@@ -38,9 +37,9 @@ export default function ContactPage() {
 
           {/* Left: Contact Details */}
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#147595]">Contact Details</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#147595]">Contact Valley Coats</h2>
             <p className="text-gray-700 text-lg">
-              Reach out to iMvelenhle Cleaning Services for any questions or to schedule a cleaning service. We're here to help!
+              Reach out to Valley Coats for enquiries or to schedule your decorative coatings or architectural finishes project. We're here to help transform your space!
             </p>
 
             <div className="space-y-4">
@@ -63,11 +62,11 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-4 text-gray-700">
                 <FaEnvelope className="text-[#147595] w-6 h-6" />
-                <span>info@imvelenhlecleaning.co.za</span>
+                <span>info@valleycoats.co.za</span>
               </div>
               <div className="flex items-center gap-4 text-gray-700">
                 <FaMapMarkerAlt className="text-[#147595] w-6 h-6" />
-                <span>50 Waterkant Street, Odendaalsrus, South Africa, 9480</span>
+                <span>KwaMbonambi, KwaZulu-Natal, South Africa</span>
               </div>
             </div>
           </div>
@@ -111,7 +110,7 @@ export default function ContactPage() {
 
               <button
                 onClick={sendWhatsApp}
-                className="bg-[#8c54ff] text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:opacity-90 transition"
+                className="bg-[#147595] text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:opacity-90 transition"
               >
                 Send via WhatsApp
               </button>

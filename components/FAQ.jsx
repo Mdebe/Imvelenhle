@@ -1,70 +1,107 @@
 "use client";
 
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { FiLayers, FiPackage, FiTool } from "react-icons/fi"; // Advantages icons
+import { HiOutlineClipboardList, HiOutlineColorSwatch, HiOutlineCheckCircle, HiOutlineEye } from "react-icons/hi"; // Process icons
+import Image from "next/image";
 
-const faqItems = [
+const advantages = [
   {
-    question: "What services does iMvelenhle Cleaning Services offer?",
-    answer: "We provide professional mattress cleaning, bed base cleaning, outdoor cleaning, gardening maintenance, and tree trimming for residential and commercial clients.",
+    title: "Specialization",
+    desc: "Expertise in premium decorative coatings and architectural finishes.",
+    icon: <FiLayers size={60} className="text-[#e8d926]" />,
   },
   {
-    question: "How can I book a cleaning service?",
-    answer: "You can book a service by filling out the booking form on our website or contacting us directly via WhatsApp or email.",
+    title: "Premium Materials",
+    desc: "We use high-quality materials to ensure long-lasting, luxurious finishes.",
+    icon: <FiPackage size={60} className="text-[#e8d926]" />,
   },
   {
-    question: "Do you offer specialized cleaners for elders and moms?",
-    answer: "Yes! We have dedicated 'Elder' and 'Moms Only' cleaners, so you can confidently choose the perfect cleaner for your home.",
-  },
-  {
-    question: "What areas do your outdoor and gardening services cover?",
-    answer: "We provide lawn cleaning and gardening services for small, medium, and large areas, including trimming of trees of all sizes.",
-  },
-  {
-    question: "How can I contact iMvelenhle Cleaning Services?",
-    answer: "You can reach us via WhatsApp at 072 334 0746 or email at info@imvelenhlecleaning.co.za for quick responses.",
+    title: "Custom Solutions",
+    desc: "Bespoke wall and floor finishes tailored to your unique project.",
+    icon: <FiTool size={60} className="text-[#e8d926]" />,
   },
 ];
 
-export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+const steps = [
+  { title: "Consultation & Design", icon: <HiOutlineClipboardList size={60} className="text-[#5da446]" /> },
+  { title: "Surface Preparation", icon: <HiOutlineColorSwatch size={60} className="text-[#5da446]" /> },
+  { title: "Application & Finishing", icon: <HiOutlineCheckCircle size={60} className="text-[#5da446]" /> },
+  { title: "Inspection & Delivery", icon: <HiOutlineEye size={60} className="text-[#5da446]" /> },
+];
 
-  const toggleIndex = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+const certifications = [
+  { name: "ISO 9001", logo: "/certs/iso9001.png" },
+  { name: "SABS Approved", logo: "/certs/sabs.png" },
+  { name: "Manufacturer Certified", logo: "/certs/manufacturer.png" },
+];
+
+export default function ValleySections() {
+  const accentColor = "#e8d926";
 
   return (
-    <section id="faq" className="bg-gray-50 py-20 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        <h3 className="text-4xl font-bold text-[#010a33]">Frequently Asked Questions</h3>
-        <p className="text-gray-600 mt-2 text-lg">Everything you need to know about iMvelenhle services</p>
+    <div className="bg-white">
 
-        <div className="mt-12 space-y-4">
-          {faqItems.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300"
+      {/* WHY CHOOSE US */}
+      <section id="advantages" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto text-center mb-16">
+          <h2 className="text-5xl font-bold mb-4">Why Choose <span style={{ color: accentColor }}>Us</span></h2>
+          <p className="text-gray-600 text-lg">
+            Our dedication to craftsmanship, premium materials, and custom solutions makes Valley Coats the trusted choice for your spaces.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          {advantages.map((adv, idx) => (
+            <motion.div
+              key={adv.title}
+              className="bg-gray-50 p-8 rounded-3xl shadow-lg flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
             >
-              <button
-                onClick={() => toggleIndex(index)}
-                className="w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-[#010a33] focus:outline-none"
-              >
-                {item.question}
-                <span className={`transform transition-transform ${openIndex === index ? "rotate-45" : "rotate-0"}`}>
-                  +
-                </span>
-              </button>
-
-              <div
-                className={`px-6 pb-4 text-gray-700 text-sm transition-all duration-300 ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-                }`}
-              >
-                {item.answer}
+              <div className="mb-6">
+                {adv.icon}
               </div>
-            </div>
+              <h4 className="text-2xl font-bold mb-2">{adv.title}</h4>
+              <p className="text-gray-600">{adv.desc}</p>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* STEP-BY-STEP PROCESS */}
+      <section id="process" className="py-24 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto text-center mb-16">
+          <h2 className="text-5xl font-bold mb-4">Our Process</h2>
+          <p className="text-gray-600 text-lg">
+            From consultation to final delivery, we ensure every project is executed with precision.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+          {steps.map((step, idx) => (
+            <motion.div
+              key={step.title}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+            >
+              <div className="mb-4">
+                {step.icon}
+              </div>
+              <h4 className="text-xl font-bold">{step.title}</h4>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+ 
+
+
+    </div>
   );
 }
